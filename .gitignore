@@ -1,0 +1,16 @@
+.classpath
+.project
+.settings
+
+.idea
+.gradle
+
+*.iml
+*.ipr
+*.iws
+*.log
+
+build/
+logs/
+bin/
+src/main/generated/

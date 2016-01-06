@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<evcom>
+    <hd>
+        <stm v="1234124"/>
+        <sid v="234234"/>
+        <cid v="string_cid"/>
+        <sts v="23423"/>
+        <tid v="23423"/>
+    </hd>
+    <bd>
+        <sqd v="239823423"/>
+        <sqn v="23423423"/>
+        <cmd v="string_body_cid"/>
+        <rst v="876358235"/>
+        <rms v="this_string_rms"/>
+    </bd>
+</evcom>

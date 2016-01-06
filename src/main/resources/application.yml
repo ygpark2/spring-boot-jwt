@@ -1,0 +1,120 @@
+
+### This is the main way to configure the application (other than annotations).
+### This fils is in Yaml format but you can also do this using the traditional
+### Java properties file.
+
+spring:
+  profiles:
+    active: web
+  # IDENTITY (ContextIdApplicationContextInitializer)
+  application:
+    name: kdn-ecsi-console
+    index: index
+
+  boot:
+    admin:
+      username: demo
+      password: 123
+      url: http://localhost:8088
+
+  # Hibernate
+  # validate | update | create | create-drop
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+    show-sql: true
+    generate-ddl: true
+
+  # DataSource
+  datasource:
+    # name= # name of the data source
+    # initialize=true # populate using data.sql.bak
+    # schema= # a schema (DDL) script resource reference
+    # data= # a data (DML) script resource reference
+    # sqlScriptEncoding= # a charset for reading SQL scripts
+    # platform= # the platform to use in the schema resource (schema-${platform}.sql)
+    continueOnError: false
+    separator: ;
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.10.17/ADMIN
+    username: yjchoi
+    password: yjchoi1234
+    hibernate:
+      hbm2ddl:
+        auto: create-drop
+      ejb:
+        naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+    max-active: 100
+    max-idle: 8
+    min-idle: 8
+    initial-size: 10
+    validation-query: SELECT 1
+    test-on-borrow: false
+    test-on-return: false
+    # test-while-idle:
+    # time-between-eviction-runs-millis:
+    # min-evictable-idle-time-millis:
+    # max-wait:
+
+    # another database configuration
+    csos:
+      platform: mysql
+      url: jdbc:mysql://192.168.10.17/ECSI
+      username: yjchoi
+      password: yjchoi1234
+      driver-class-name: com.mysql.jdbc.Driver
+      continueOnError: true
+      initialize: true
+      hibernate:
+        hbm2ddl:
+          auto: validate
+        ejb:
+          naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+
+  # JMX
+  jmx:
+    enabled: true
+
+  oxm:
+    package:
+      name: com.kdn.ecsi.epengine.domain.oxm.*
+
+  jersey:
+    resource:
+      package: com.kdn.ecsi.epengine.web.resource
+    type: servlet
+# spring.jersey.resource.package
+
+# LOGGING
+logging:
+  path: ./logs/
+  # file: myapp.log # cannot set file, path at the same time.
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+  # config: log4j2.xml
+
+server:
+  servlet-path: /console
+  port: 9000
+
+# Management
+# management.security.enabled=false
+management:
+  port: 8081
+  address: localhost
+  context-path: /manage
+
+security:
+  user:
+    name: demo
+    password: 123
+
+endpoints:
+  health:
+    enabled: true
+  jmx:
+    domain: myapp
+    unique-names: true
+

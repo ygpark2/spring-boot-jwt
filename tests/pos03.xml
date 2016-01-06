@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<evcom>
+    <hd>
+        <stm v="1234124"/>
+        <sid v="234234"/>
+        <cid v="string_cid"/>
+        <sts v="23423"/>
+        <tid v="23423"/>
+    </hd>
+    <bd>
+        <sts v="239807"/>
+        <acd v="act_value_string"/>
+        <tdt v="239807"/>
+        <ttm v="23423423"/>
+        <cdt v="234234"/>
+        <ctm v="876358235"/>
+        <lvl v="234"/>
+    </bd>
+</evcom>
